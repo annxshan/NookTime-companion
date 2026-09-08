@@ -1,0 +1,60 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ IDEA / Android Studio
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Flutter / Dart build artifacts
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+
+# Symbol files
+debug_symbols/
+
+# Environment & Keys
+.env
+.env.*
+lib/core/constants/api_keys.dart
+key.properties
+*.jks
+*.keystore
+
+# Firebase private configs
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+lib/firebase_options.dart
+
+# AI models & binaries
+*.gguf
+*.bin
+assets/models/
+
+# Local databases & symbols
+*.db
+*.sqlite
+*.sqlite-journal
+
+# Platform specific local overrides
+android/local.properties
+ios/Flutter/Generated.xcconfig
+ios/Flutter/app.fltent

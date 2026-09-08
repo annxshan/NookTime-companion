@@ -1,0 +1,162 @@
+name: nooktime
+description: "Nooktime – personal productivity with Google Calendar integration and analytics."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+# Flutter 3.41.1 ships Dart 3.11.0.  Do not raise the lower bound beyond
+# what the installed SDK provides.
+environment:
+  sdk: ^3.11.0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Runtime Dependencies
+# ─────────────────────────────────────────────────────────────────────────────
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # ── Icons ──────────────────────────────────────────────────────────────────
+  cupertino_icons: ^1.0.8
+
+  # ── State Management ───────────────────────────────────────────────────────
+  # flutter_bloc 9.x: BLoC + Cubit pattern; requires bloc ^9.x.
+  flutter_bloc: ^9.1.1
+  bloc: ^9.0.0
+
+  # equatable: Structural equality for BLoC states and events.
+  equatable: ^2.0.5
+
+  # ── Local Database ─────────────────────────────────────────────────────────
+  # sqflite: SQLite wrapper for Android & iOS.
+  # CONSTRAINT: sqflite >= 2.4.3 requires Dart ^3.12.0.
+  # Flutter 3.41.1 ships Dart 3.11.0, so we cap at < 2.4.3.
+  # Upgrade this bound when `flutter upgrade` brings Dart >= 3.12.
+  sqflite: ">=2.3.0 <2.4.3"
+  sqflite_common_ffi_web: ^0.4.3
+  flutter_web_plugins:
+    sdk: flutter
+
+  # path: Filesystem path utilities required by sqflite for DB location.
+  path: ^1.9.1
+
+  # ── Google Authentication ──────────────────────────────────────────────────
+  # google_sign_in 7.x: OAuth2 Google sign-in for Android, iOS, and Web.
+  # SETUP REQUIRED: Register SHA-1 fingerprint in Google Cloud Console and
+  # place google-services.json at android/app/.
+  google_sign_in: ^7.2.0
+
+  # ── Google APIs ────────────────────────────────────────────────────────────
+  # googleapis 16.x: Auto-generated Dart client for the Google API surface
+  # (Calendar, Drive, Tasks, Sheets, People, etc.).
+  googleapis: ^16.0.0
+
+  # googleapis_auth: OAuth2 credential management; supplies authenticated
+  # HTTP clients to googleapis service stubs.
+  googleapis_auth: ^1.6.0
+
+  # extension_google_sign_in_as_googleapis_auth: Converts a GoogleSignIn
+  # instance into an authenticated googleapis HTTP client with one call.
+  # COMPATIBILITY: v3.0.0+ is required for google_sign_in ^7.x.
+  # v2.x caps at google_sign_in < 7.0.0 and will cause a pub resolution failure.
+  extension_google_sign_in_as_googleapis_auth: ^3.0.0
+
+  # ── Charts ─────────────────────────────────────────────────────────────────
+  # fl_chart 1.x: Line, bar, pie, scatter, and radar charts.
+  fl_chart: ^1.2.0
+
+  # ── Networking & AI ────────────────────────────────────────────────────────
+  # http: Standard Dart HTTP client; required by googleapis_auth.
+  http: ^1.2.2
+
+  # dio: HTTP client for downloading files with progress tracking.
+  dio: ^5.7.0
+
+  # google_generative_ai: Official Google Gemini API SDK for Dart & Flutter.
+  google_generative_ai: ^0.4.0
+
+  # ── Internationalisation ───────────────────────────────────────────────────
+  # intl: Date, number, and message formatting (ARB / ICU support).
+  intl: ^0.20.2
+
+  # ── Typography ─────────────────────────────────────────────────────────────
+  # google_fonts: Access to 1000+ Google Fonts; used for Inter in AppTheme.
+  google_fonts: ^6.2.1
+
+  # ── Animations ─────────────────────────────────────────────────────────────
+  # lottie: Render vector Lottie animations from JSON.
+  lottie: ^3.3.1
+
+  # ── Persistence ────────────────────────────────────────────────────────────
+  # path_provider: Access to commonly used locations on host filesystem.
+  path_provider: ^2.1.4
+
+  # shared_preferences: Lightweight key-value store for user settings.
+  shared_preferences: ^2.3.2
+
+  # ── Local Notifications ───────────────────────────────────────────────────
+  # flutter_local_notifications: Local push notifications & alarms.
+  flutter_local_notifications: ^18.0.1
+  timezone: ^0.10.0
+  flutter_timezone: ^5.1.0
+  image_picker: ^1.2.3
+
+  # ── Firebase ───────────────────────────────────────────────────────────────
+  firebase_core: ^3.12.0
+  cloud_firestore: ^5.6.12
+  firebase_auth: ^5.5.1
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Dev Dependencies
+# ─────────────────────────────────────────────────────────────────────────────
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # bloc_test: BLoC/Cubit unit-testing utilities.
+  # COMPATIBILITY: bloc_test major version must match bloc major version.
+  #   bloc ^9.x  →  bloc_test ^10.x   ✓  (this project)
+  #   bloc ^8.x  →  bloc_test ^9.x
+  bloc_test: ^10.0.0
+
+  # flutter_lints: Google-recommended Dart lint rule set.
+  flutter_lints: ^6.0.0
+
+  # mockito: Mock-object generation for unit tests via @GenerateMocks.
+  mockito: ^5.4.4
+
+  # build_runner: Code generation runner required by mockito @GenerateMocks.
+  build_runner: ^2.4.13
+
+  # flutter_launcher_icons: Launcher icon generator for Android & iOS.
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path: "assets/icon_light.png"
+  adaptive_icon_background: "#F1F4FA"
+  adaptive_icon_foreground: "assets/icon_light.png"
+  remove_alpha_ios: true
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Flutter Configuration
+# ─────────────────────────────────────────────────────────────────────────────
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/lottie/
+    - assets/icon.svg
+    - assets/icon_light.png
+    - assets/icon_dark.png
+
+  # Uncomment to bundle custom fonts:
+  # fonts:
+  #   - family: Inter
+  #     fonts:
+  #       - asset: assets/fonts/Inter-Regular.ttf
+  #       - asset: assets/fonts/Inter-SemiBold.ttf
+  #         weight: 600
+  #       - asset: assets/fonts/Inter-Bold.ttf
+  #         weight: 700
