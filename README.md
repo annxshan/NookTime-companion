@@ -1,4 +1,4 @@
-# Nooktime ⚡
+# Nooktime
 
 > **Intelligent, Offline-First AI Routine Planner & Tactical HUD**
 
